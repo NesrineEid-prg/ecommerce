@@ -14,3 +14,4 @@ part './utils/manage-keyboard.dart';
 part './screens/auth-ui/splash-screen.dart';
 part './screens/auth-ui/welcome-screen.dart';
 part './screens/auth-ui/signin-screen.dart';
+part './screens/auth-ui/signup-screen.dart';

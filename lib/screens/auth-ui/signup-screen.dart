@@ -1,35 +1,40 @@
 part of '../../import-path.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
-    return KeyboardVisibilityBuilder(builder: (context, isKeyboardVisible) {
-      return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text(
-            'Sign In',
-            style: TextStyle(color: AppConstant.appTextcolor, fontSize: 29),
-          ),
-          backgroundColor: AppConstant.appSecodrycolor,
-        ),
-        body: Column(
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Sign Up',
+            style: TextStyle(
+                color: AppConstant.appTextcolor,
+                fontSize: 29,
+                fontWeight: FontWeight.bold)),
+        backgroundColor: AppConstant.appSecodrycolor,
+      ),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
           children: [
-            isKeyboardVisible
-                ? const Text('Welcome To My App',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold))
-                : Column(
-                    children: [
-                      Lottie.asset('assets/images/splash-icon.json'),
-                    ],
-                  ),
+            SizedBox(
+              height: Get.height / 18,
+            ),
+            Container(
+              alignment: Alignment.center,
+              child: const Text('Welcome To My App',
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: AppConstant.appSecodrycolor,
+                      fontWeight: FontWeight.bold)),
+            ),
             SizedBox(
               height: Get.height / 18,
             ),
@@ -57,7 +62,41 @@ class _SignInScreenState extends State<SignInScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     cursorColor: AppConstant.appSecodrycolor,
-                    keyboardType: TextInputType.emailAddress,
+                    keyboardType: TextInputType.name,
+                    decoration: InputDecoration(
+                        contentPadding:
+                            const EdgeInsets.only(top: 10, left: 10),
+                        hintText: 'UserName',
+                        prefixIcon: const Icon(Icons.person),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                  ),
+                )),
+            Container(
+                margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                width: Get.width,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    cursorColor: AppConstant.appSecodrycolor,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        contentPadding:
+                            const EdgeInsets.only(top: 10, left: 10),
+                        hintText: 'phone',
+                        prefixIcon: const Icon(Icons.phone),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                  ),
+                )),
+            Container(
+                margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                width: Get.width,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    cursorColor: AppConstant.appSecodrycolor,
+                    keyboardType: TextInputType.visiblePassword,
                     decoration: InputDecoration(
                         contentPadding:
                             const EdgeInsets.only(top: 10, left: 10),
@@ -68,15 +107,6 @@ class _SignInScreenState extends State<SignInScreen> {
                             borderRadius: BorderRadius.circular(10))),
                   ),
                 )),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 12),
-              alignment: Alignment.centerRight,
-              child: const Text('Forget Password?',
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: AppConstant.appSecodrycolor,
-                      fontWeight: FontWeight.bold)),
-            ),
             SizedBox(
               height: Get.height / 40,
             ),
@@ -88,7 +118,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     color: AppConstant.appSecodrycolor,
                     borderRadius: BorderRadius.circular(30)),
                 child: TextButton.icon(
-                  label: const Text('Sign In',
+                  label: const Text('Sign up',
                       style: TextStyle(
                           fontSize: 22,
                           color: AppConstant.appStatusBarcolor,
@@ -103,19 +133,19 @@ class _SignInScreenState extends State<SignInScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Don't have an account",
+                const Text("Already have an account",
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 20,
                         color: AppConstant.appSecodrycolor,
                         fontWeight: FontWeight.bold)),
                 const SizedBox(
                   width: 10,
                 ),
                 GestureDetector(
-                  onTap: () => Get.offAll(() => const SignUpScreen()),
-                  child: const Text("Sign Up",
+                  onTap: () => Get.offAll(() => const SignInScreen()),
+                  child: const Text("Sign In",
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 20,
                           color: AppConstant.appSecodrycolor,
                           fontWeight: FontWeight.bold)),
                 ),
@@ -123,7 +153,7 @@ class _SignInScreenState extends State<SignInScreen> {
             )
           ],
         ),
-      );
-    });
+      ),
+    );
   }
 }
