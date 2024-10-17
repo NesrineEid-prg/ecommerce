@@ -11,3 +11,4 @@ part './utils/app-constant.dart';
 part './utils/manage-keyboard.dart';
 //auth ui
 part './screens/auth-ui/splash-screen.dart';
+part './screens/auth-ui/welcome-screen.dart';

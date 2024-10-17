@@ -13,7 +13,7 @@ class _SpashSreenState extends State<SpashSreen> {
     super.initState();
 
     Timer(const Duration(seconds: 3), () {
-      Get.offAll(() => const MainScreen());
+      Get.offAll(() => const WelcomeSreen());
     });
   }
 
