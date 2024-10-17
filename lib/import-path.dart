@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 //screen
@@ -12,3 +13,4 @@ part './utils/manage-keyboard.dart';
 //auth ui
 part './screens/auth-ui/splash-screen.dart';
 part './screens/auth-ui/welcome-screen.dart';
+part './screens/auth-ui/signin-screen.dart';
